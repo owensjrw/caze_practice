@@ -7,33 +7,17 @@ typedef struct node {
 } ll_node_st;
 
 void push(int n, ll_node_st **head) {
-  ll_node_st *element /*make a pointer named element of ll_node_st type*/ =
-      /* create memory size ll_node_st */ malloc(sizeof *element);
-
-  //Insert the data to the new struct at memory starting where element points
+  ll_node_st *element = malloc(sizeof *element);
   element->value = n;
-
-  //Connect linked list
   element->next = *head;
-
-  //Change current head reference
   *head = element;
 }
 
 int pop(ll_node_st **head) {
-  //Get current head of linked list
   ll_node_st *relement = *head;
-
-  //Get data to return
   int rdata = relement->value;
-
-  //Change current head reference
   *head = relement->next;
-
-  //Free (delete, pop)
   free(relement);
-
-  //return data
   return rdata;
 }
 
