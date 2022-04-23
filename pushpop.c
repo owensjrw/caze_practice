@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct node {
+typedef struct {
 	int value;
-	struct node *next;
+	ll_node_st *next;
 } ll_node_st;
 
 void push(int n, ll_node_st **head) {
