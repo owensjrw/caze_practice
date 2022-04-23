@@ -8,9 +8,7 @@ typedef struct node {
 
 void push(int n, ll_node_st **head) {
   ll_node_st *element /*make a pointer named element of ll_node_st type*/ =
-    /* create memory size ll_node_st casted as a pointer of type ll_node_st */
-                      (ll_node_st *) malloc(sizeof(ll_node_st));
-                      // Now have a pointer to a pointer
+      /* create memory size ll_node_st */ malloc(sizeof *element);
 
   //Insert the data to the new struct at memory starting where element points
   element->value = n;
@@ -32,11 +30,11 @@ int pop(ll_node_st **head) {
   //Change current head reference
   *head = relement->next;
 
-  //return data
-  return rdata;
-
   //Free (delete, pop)
   free(relement);
+
+  //return data
+  return rdata;
 }
 
 int main(void) {
